@@ -1,0 +1,244 @@
+/* Stats Section */
+.stats-section {
+  background: #402E56;
+  padding: 80px 24px;
+  margin: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating Animated Shapes */
+.floating-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 20s infinite ease-in-out;
+}
+
+.shape-1 {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 25s;
+}
+
+.shape-2 {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  left: 80%;
+  animation-delay: 2s;
+  animation-duration: 30s;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.shape-3 {
+  width: 60px;
+  height: 60px;
+  top: 80%;
+  left: 20%;
+  animation-delay: 4s;
+  animation-duration: 20s;
+}
+
+.shape-4 {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  left: 70%;
+  animation-delay: 1s;
+  animation-duration: 28s;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.shape-5 {
+  width: 90px;
+  height: 90px;
+  top: 50%;
+  left: 5%;
+  animation-delay: 3s;
+  animation-duration: 22s;
+  border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%;
+}
+
+.shape-6 {
+  width: 70px;
+  height: 70px;
+  top: 30%;
+  left: 50%;
+  animation-delay: 5s;
+  animation-duration: 26s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(30px, -50px) rotate(90deg) scale(1.1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-20px, -80px) rotate(180deg) scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(-50px, -30px) rotate(270deg) scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.stats-container h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 12px 0;
+}
+
+.stats-subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 60px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 32px 24px;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.stat-graph {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 24px;
+}
+
+.circular-graph {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.graph-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 12;
+}
+
+.graph-progress {
+  fill: none;
+  stroke: #98D3EA;
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dasharray 2s ease-out;
+}
+
+.graph-progress-2 {
+  stroke: #EEAC2B;
+}
+
+.graph-progress-3 {
+  stroke: #6E6EB4;
+}
+
+.graph-progress-4 {
+  stroke: #98D3EA;
+}
+
+.stat-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 42px;
+  font-weight: 800;
+  color: white;
+}
+
+.stat-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.stat-card p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .stats-section {
+    padding: 60px 24px;
+  }
+
+  .stats-container h2 {
+    font-size: 32px;
+  }
+
+  .stats-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+  }
+
+  .stat-graph {
+    width: 150px;
+    height: 150px;
+  }
+
+  .stat-number {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

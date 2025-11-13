@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Modern Navbar Design */
+.navbar-header {
+    width: 100%;
+    background: #6E6EB4;
+    box-shadow: 0 4px 20px rgba(110, 110, 180, 0.3);
+    z-index: 1000;
+}
+
+.navbar-main {
+    width: 100%;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+}
+
+/* Left Section - Logo */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    width: 120px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Center Section - Links */
+.navbar-center {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+.navbar-center a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 8px 0;
+}
+
+.navbar-center a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-center a:hover {
+    color: white;
+}
+
+.navbar-center a:hover::after {
+    width: 100%;
+}
+
+.navbar-center a.active {
+    color: white;
+}
+
+.navbar-center a.active::after {
+    width: 100%;
+}
+
+/* Right Section - CTA */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-cta {
+    padding: 10px 28px;
+    border-radius: 24px;
+    background: #EEAC2B;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(238, 172, 43, 0.3);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(238, 172, 43, 0.5);
+    background: #402E56;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .navbar-container {
+        padding: 14px 24px;
+    }
+    
+    .navbar-center {
+        gap: 32px;
+    }
+    
+    .navbar-center a {
+        font-size: 14px;
+    }
+    
+    .nav-logo {
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-center {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: #402E56;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-center.active {
+        right: 0;
+    }
+
+    .navbar-center a {
+        font-size: 18px;
+        width: 100%;
+        text-align: center;
+        padding: 16px 0;
+    }
+
+    .navbar-center a::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .navbar-center a:hover::after,
+    .navbar-center a.active::after {
+        width: 60%;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-container {
+        justify-content: space-between;
+    }
+
+    .nav-cta {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 12px 16px;
+    }
+    
+    .nav-logo {
+        width: 80px;
+    }
+    
+    .nav-cta {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .navbar-center {
+        width: 80%;
+    }
+
+    .hamburger {
+        width: 26px;
+        height: 20px;
+    }
+}
